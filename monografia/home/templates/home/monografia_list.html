@@ -1,0 +1,19 @@
+{% extends "home/index.html" %}
+{% load static %}
+
+{% block content %}
+
+<h4><small>Monografias</small></h4>
+
+<div class="col-sm-9">
+{% for monografia in object_list %}      
+      <hr>
+      <h2> Titulo: {{ monografia.titulo }}</h2>
+      <h5> Autor:  {{ monografia.autor }}</h5>      
+      <p><h3>Resumo:</h3> {{ monografia.resumo }}</p>
+      <a href=" {{ monografia.link }}" class="btn btn-link btn-lg active" role="button" aria-pressed="true">Link para a monografia</a>
+      <a href="home/editar/{{ monografia.id }}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Editar</a> 
+      <a href="home/excluir/{{ monografia.id }}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Excluir</a>         
+      <br><br> 
+{% endfor %}
+{% endblock %}  
